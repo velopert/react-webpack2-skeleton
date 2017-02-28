@@ -18,6 +18,19 @@ module.exports = {
     module: {
         rules: [
             {
+                exclude: [
+                    /\.html$/,
+                    /\.(js|jsx)$/,
+                    /\.(css|scss)$/,
+                    /\.json$/
+                ],
+                loader: 'url',
+                query: {
+                    limit: 10000,
+                    name: 'static/media/[name].[hash:8].[ext]'
+                }
+            },
+            {
                 test: /\.js$/,
                 exclude: [/node_modules/],
                 use: [{
@@ -40,9 +53,9 @@ module.exports = {
                         options: {
                             plugins: function () {
                                 return [
-                                      require('autoprefixer')
+                                    require('autoprefixer')
                                 ];
-                              }
+                            }
                         }
                     }
                 ],
@@ -62,9 +75,9 @@ module.exports = {
                         options: {
                             plugins: function () {
                                 return [
-                                      require('autoprefixer')
+                                    require('autoprefixer')
                                 ];
-                              }
+                            }
                         }
                     },
                     'sass-loader'

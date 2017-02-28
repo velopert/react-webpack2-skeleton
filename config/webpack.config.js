@@ -18,6 +18,19 @@ module.exports = {
     module: {
         rules: [
             {
+                exclude: [
+                    /\.html$/,
+                    /\.(js|jsx)$/,
+                    /\.(css|scss)$/,
+                    /\.json$/
+                ],
+                loader: 'url',
+                query: {
+                    limit: 10000,
+                    name: 'static/media/[name].[hash:8].[ext]'
+                }
+            },
+            {
                 test: /\.js$/,
                 exclude: [/node_modules/],
                 use: [{
@@ -25,7 +38,6 @@ module.exports = {
                     options: { presets: ['react-app'] }
                 }],
             },
-            // Loaders for other file types can go here
             {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract({
