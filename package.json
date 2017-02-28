@@ -1,6 +1,7 @@
 {
     "name": "react-webpack2-skeleton",
     "version": "1.0.0",
+    "description": "Get started with React with Webpack2",
     "main": "index.js",
     "license": "MIT",
     "scripts": {
