@@ -1,6 +1,6 @@
 # React-webpack2-skeleton
 
-React-webpack2-skeleton is a lightweight React boilerplate that uses Webpack2. url-loader and sass-loader have been configured to this project by default.
+React-webpack2-skeleton is a lightweight React boilerplate that uses Webpack2. url-loader, sass-loader, and react-hot-loader@3.0.0 have been configured to this project by default.
 
 ## Requirement
 
@@ -13,7 +13,12 @@ First, clone the project:
 
 ```bash
 $ git clone https://github.com/velopert/react-webpack2-skeleton.git <project-name>
-cd <project-name>
+$ cd <project-name>
+```
+
+If you do not need react-hot-loader feature, you can checkout the `light` branch.
+```bash
+$ git checkout light
 ```
 
 Then, install the dependencies. It is recommended to use Yarn, (because it is blazing fast). You can still use npm as well.
