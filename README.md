@@ -35,7 +35,6 @@ You can execute the scripts below by `yarn run <script>` or `npm run <script>`.
 |---------|---------------------------------------------------------------|
 | start   | Starts webpack development server; served at `localhost:3000` |
 | build   | Bundles the source in `~/build` directory                     |
-| clean   | Removes `~/build` directory                                   |
 
 ## Directory structure
 
