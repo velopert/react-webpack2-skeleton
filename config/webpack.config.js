@@ -79,7 +79,8 @@ module.exports = {
                             options: {
                                 plugins: function () {
                                     return [
-                                        require('autoprefixer')
+                                        require('autoprefixer'),
+                                        require('cssnano')
                                     ];
                                 }
                             }
