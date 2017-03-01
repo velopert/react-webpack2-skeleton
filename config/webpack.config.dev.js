@@ -1,13 +1,16 @@
+const path = require('path');
 const paths = require('./paths');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-process.env.NODE_ENV = 'development';
-
 module.exports = {
     context: paths.context,
     entry: {
-        index: paths.appIndexJs,
+        index: [
+            'react-hot-loader/patch', 
+            'webpack-dev-server/client?http://0.0.0.0:3000', 
+            'webpack/hot/only-dev-server', paths.appIndexJs
+        ],
         style: paths.appStyle,
     },
     output: {
@@ -33,10 +36,43 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: [/node_modules/],
-                use: [{
-                    loader: 'babel-loader',
-                    options: { presets: ['react-app'] }
-                }],
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            // same configuration with react-app preset,
+                            // except the babel-plugin-syntax-dynamic-import, which collides with react-hot-loader
+                            // (it is not necessary in webpack2)
+                            presets: [
+                                ["latest", {
+                                    "es2015": {
+                                        "modules": false
+                                    }
+                                }],
+                                "react"
+                            ],
+                            plugins: [
+                                // class { handleClick = () => { } }
+                                'transform-class-properties',
+                                // { ...todo, completed: true }
+                                ['transform-object-rest-spread', { useBuiltIns: true }],
+                                // Polyfills the runtime needed for async/await and generatorss
+                                ['transform-runtime', {
+                                    helpers: false,
+                                    polyfill: false,
+                                    regenerator: true,
+                                    moduleName: path.dirname(require.resolve('babel-runtime/package'))
+                                }],
+                                ['transform-regenerator', {
+                                    // Async functions are converted to generators by babel-preset-latest
+                                    async: false
+                                }],
+                                // react-hot-loader (remember, always put this at the last)
+                                "react-hot-loader/babel"
+                            ]
+                        }
+                    }
+                ],
             },
             {
                 test: /\.css$/,
@@ -86,6 +122,9 @@ module.exports = {
         ],
     },
     plugins: [
+        new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"development"' }),
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
         // Generates an `index.html` file with the <script> injected.
         new HtmlWebpackPlugin({
             inject: true,
@@ -100,6 +139,8 @@ module.exports = {
     },
     devServer: {
         contentBase: paths.context,
-        port: 3000
+        port: 3000,
+        hot: true,
+        inline: false
     },
 };
