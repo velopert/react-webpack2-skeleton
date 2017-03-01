@@ -7,10 +7,7 @@ process.env.NODE_ENV = 'production';
 
 module.exports = {
     context: paths.context,
-    entry: {
-        index: paths.appIndexJs,
-        style: paths.appStyle,
-    },
+    entry: [paths.appIndexJs,  paths.appStyle],
     output: {
         path: paths.appBuild,
         filename: 'static/js/[name].bundle.js'
@@ -110,21 +107,17 @@ module.exports = {
             }
         }),
         new ExtractTextPlugin('static/css/[name].css'),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            filename: 'static/js/vendor.js',
+            minChunks: 2,
+        }),
         new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"production"' }),
         new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-          compress: {
-            screw_ie8: true,
-            warnings: false
-          },
-          mangle: {
-            screw_ie8: true
-          },
-          output: {
-            comments: false,
-            screw_ie8: true
-          }
-        })
+        new webpack.LoaderOptionsPlugin({
+            minimize: true,
+            debug: false
+        }),
     ],
     resolve: {
         modules: [

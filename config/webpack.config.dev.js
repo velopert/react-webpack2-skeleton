@@ -5,14 +5,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     context: paths.context,
-    entry: {
-        index: [
+    entry: [
             'react-hot-loader/patch', 
             'webpack-dev-server/client?http://0.0.0.0:3000', 
-            'webpack/hot/only-dev-server', paths.appIndexJs
-        ],
-        style: paths.appStyle,
-    },
+            'webpack/hot/only-dev-server', 
+            paths.appIndexJs,
+            paths.appStyle,
+    ],
     output: {
         path: paths.appBuild,
         filename: 'static/js/[name].bundle.js',
@@ -141,6 +140,7 @@ module.exports = {
         contentBase: paths.context,
         port: 3000,
         hot: true,
-        inline: false
+        inline: false,
+        historyApiFallback: true
     },
 };
