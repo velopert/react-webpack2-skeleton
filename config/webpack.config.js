@@ -118,6 +118,10 @@ module.exports = {
             minimize: true,
             debug: false
         }),
+        new webpack.NormalModuleReplacementPlugin(
+            /^\.\/routes\/Routes$/,
+            './routes/RoutesAsync'
+        )
     ],
     resolve: {
         modules: [
