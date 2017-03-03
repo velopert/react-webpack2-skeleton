@@ -14,4 +14,6 @@ module.exports = {
     appHtml: resolvePath('public/index.html'),
     vendor: ['react', 'react-dom'],
     appBuild: resolvePath('build'),
+    serverRendererJs: resolvePath('src/serverRenderer.js'),
+    server: resolvePath('server')
 }
