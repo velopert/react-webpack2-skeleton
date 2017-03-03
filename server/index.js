@@ -3,11 +3,7 @@ const app = express();
 const path = require('path');
 const renderer = require('./renderer');
 
-app.use('/', express.static(path.join(__dirname, '../build')));
-// app.get('/', (req, res)=>{
-//     res.send('hello world');
-// });
-
+app.use(express.static(path.join(__dirname, '../build')));
 app.get('*', renderer);
 
 app.listen(8080, ()=>{
