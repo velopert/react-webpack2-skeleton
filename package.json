@@ -5,8 +5,8 @@
     "main": "index.js",
     "license": "MIT",
     "scripts": {
-        "start": "webpack-dev-server --config config/webpack.config.dev.js",
-        "start:prod": "node server",
+        "start:dev": "webpack-dev-server --config config/webpack.config.dev.js",
+        "start": "node server",
         "build": "rimraf build && webpack --config config/webpack.config.js",
         "build:server": "webpack --config config/webpack.config.server.js"
     },
