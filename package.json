@@ -37,8 +37,15 @@
     },
     "dependencies": {
         "express": "^4.15.0",
+        "immutable": "^3.8.1",
         "react": "^15.4.2",
         "react-dom": "^15.4.2",
-        "react-router-dom": "next"
+        "react-redux": "^5.0.3",
+        "react-router-dom": "next",
+        "redux": "^3.6.0",
+        "redux-actions": "^1.2.2",
+        "redux-promise-middleware": "^4.2.0",
+        "transit-immutable-js": "^0.7.0",
+        "transit-js": "^0.8.846"
     }
 }
