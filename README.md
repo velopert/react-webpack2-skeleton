@@ -9,9 +9,8 @@ React-webpack2-skeleton is a lightweight React boilerplate that uses Webpack2.
    - Code splitting
    - Server rendering with express
 
-> babel-loader configuration is same as create-react-app
-
-> code splitting only works in production mode
+> Babel configuration is same as create-react-app
+> Code splitting only works in production mode
 
 ## Requirement
 
