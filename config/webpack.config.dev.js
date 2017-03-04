@@ -6,10 +6,10 @@ process.env.NODE_ENV = 'development';
 
 module.exports = {
     context: paths.context,
-    entry: {
-        index: paths.appIndexJs,
-        style: paths.appStyle,
-    },
+    entry: [
+        paths.appIndexJs,
+        paths.appStyle,
+    ],
     output: {
         path: paths.appBuild,
         filename: 'static/js/[name].bundle.js',
