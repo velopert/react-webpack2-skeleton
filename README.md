@@ -150,7 +150,7 @@ export const getPage = createPromiseAction({
 });
 ```
 If there is more than one parameter, just make it into an object, like:
-```
+```javascript
 function getPage({username, n}) {
 	return axios.get(`/page/${username}/${n}`);
 }
