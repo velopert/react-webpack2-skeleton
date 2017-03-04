@@ -32,7 +32,7 @@ Just in case you do not need some features, different branches are provided in t
 | Branch | Description                                     |
 |--------|-------------------------------------------------|
 | light  | Pure react project environment with SCSS loader |
-| hmr    | React-hot-loader applied                        |
+| hmr    | React-hot-loader                                |
 | router | React-router, server render, code-splitting     |
 
 ```bash
