@@ -22,24 +22,24 @@ const renderer = (req, res) => {
     res.end()
   } else {
     res.write(`
-    <!DOCTYPE html>
+      <!DOCTYPE html>
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>React App</title>
-        <link href="static/css/main.css" rel="stylesheet">
-    </head>
+      <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width,initial-scale=1">
+          <title>React App</title>
+          <link href="static/css/main.css" rel="stylesheet">
+      </head>
 
-    <body>
-        <div id="root">
-          ${html}
-        </div>
-        <script type="text/javascript" src="static/js/vendor.js"></script>
-        <script type="text/javascript" src="static/js/main.bundle.js"></script>
-    </body>
+      <body>
+          <div id="root">
+            ${html}
+          </div>
+          <script type="text/javascript" src="static/js/vendor.js"></script>
+          <script type="text/javascript" src="static/js/main.bundle.js"></script>
+      </body>
 
-    </html>
+      </html>
     `)
     res.end()
   }
