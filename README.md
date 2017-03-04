@@ -254,5 +254,11 @@ export const Home = asyncRoute(() => System.import('./Home'));
 Webpack is configured to use this file only in the production mode. 
 (Check out webpack.NormalModuleReplacementPlugin  config of the `config/webpack.config.js` file)
 
+## References
+
+https://medium.com/modus-create-front-end-development/webpack-2-tree-shaking-configuration-9f1de90f3233#.an4fk0m9d
+http://moduscreate.com/code-splitting-for-react-router-with-es6-imports/
+https://www.codementor.io/reactjs/tutorial/redux-server-rendering-react-router-universal-web-app
+
 ## Questions?
 If you have any issues, feel free to post the issues. Pull Requests are welcomed. 
