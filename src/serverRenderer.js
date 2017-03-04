@@ -43,7 +43,10 @@ const renderPage = (html, preloadedState) => {
   `
 }
 
-const renderer = (req, res) => {
+const renderer = (req, res, next) => {
+
+  // skips static directory
+  if(req.path === '/favicon.ico' || req.path.split('/')[1] === 'static') return next();
 
   // This context object contains the results of the render
   const context = {}
