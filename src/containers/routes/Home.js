@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Hello from 'components/Hello';
-import Satisfy from 'helpers/Satisfy';
 import * as sample from 'redux/modules/sample';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -36,11 +35,3 @@ export default connect(
         SampleActions: bindActionCreators(sample, dispatch)
     })
 )(Home);
-
-
-
-        // <Satisfy 
-        //     condition={ validProfile } 
-        //     action={ getProfile } 
-        //     id={ id } 
-        // />

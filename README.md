@@ -1,6 +1,6 @@
 # React-webpack2-skeleton
 
-React-webpack2-skeleton is a lightweight React boilerplate that uses Webpack2. 
+React-webpack2-skeleton is a Universal React boilerplate that uses Webpack2. 
 
 ## Features 
  - Webpack2 with url-loader, sass-loader, css-loader, babel-loader
@@ -8,8 +8,15 @@ React-webpack2-skeleton is a lightweight React boilerplate that uses Webpack2.
  - react-router@4.0.0 
    - Code splitting
    - Server rendering with express
+ - redux
+   - [Duck structure](https://github.com/erikras/ducks-modular-redux) is used in this project
+   - Async actions are handled by redux-promise-middleware
+   - ImmutableJS is used in the reducers
+   - `transit-immutable-js` is used to serialize / deserialize the Immutables 
+
 
 > NOTE:  
+
 > Babel configuration is same as create-react-app  
 > Code splitting only works in production mode
 
@@ -53,8 +60,8 @@ You can execute the scripts below by `yarn run <script>` or `npm run <script>`.
 
 | Command        | Description                                                   |
 |----------------|---------------------------------------------------------------|
-| start          | Starts webpack development server; served at `localhost:3000` |
-| start:prod     | Starts production server; served at `localhost:8080`          |
+| start:dev      | Starts webpack development server; served at `localhost:3000` |
+| start          | Starts production server; served at `localhost:8080`          |
 | build          | Bundles the source in `~/build` directory                     |
 | build:server   | Bundles the source to server renderer in `~/server` directory |
 
